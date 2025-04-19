@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secret Video</title>
+  </head>
+  <body style="text-align:center;">
+    <h2>Touch the screen for something cool...</h2>
+    <video id="video" width="100%" autoplay></video>
+
+    <script>
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          document.getElementById('video').srcObject = stream;
+        })
+        .catch(err => {
+          alert("Camera access denied or not supported.");
+        });
+    </script>
+  </body>
+</html>
+
